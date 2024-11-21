@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsão de Risco de Fogo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eaf7ea;
+      border: 1px solid #c8e6c9;
+      border-radius: 4px;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Previsão de Risco de Fogo</h2>
+
+    <label for="municipio">Município</label>
+    <select id="municipio">
+      <option value="" disabled selected>Selecione um município</option>
+      <!-- Exemplos de municípios do Nordeste -->
+      <option value="Fortaleza">Fortaleza (CE)</option>
+      <option value="Recife">Recife (PE)</option>
+      <option value="Salvador">Salvador (BA)</option>
+      <option value="São Luís">São Luís (MA)</option>
+      <option value="Natal">Natal (RN)</option>
+      <option value="Maceió">Maceió (AL)</option>
+      <option value="Teresina">Teresina (PI)</option>
+      <option value="Aracaju">Aracaju (SE)</option>
+      <option value="João Pessoa">João Pessoa (PB)</option>
+      <option value="Juazeiro do Norte">Juazeiro do Norte (CE)</option>
+      <option value="Campina Grande">Campina Grande (PB)</option>
+    </select>
+
+    <label for="data-inicio">Data Início</label>
+    <input type="date" id="data-inicio">
+
+    <label for="data-fim">Data Fim</label>
+    <input type="date" id="data-fim">
+
+    <button onclick="calcularRisco()">Calcular Risco de Fogo</button>
+
+    <div id="output" class="output" style="display: none;">
+      <p>O risco de fogo calculado é: <span id="risco-fogo">--</span></p>
+    </div>
+  </div>
+
+  <script>
+    function calcularRisco() {
+      const municipio = document.getElementById('municipio').value;
+      const dataInicio = document.getElementById('data-inicio').value;
+      const dataFim = document.getElementById('data-fim').value;
+
+      if (!municipio || !dataInicio || !dataFim) {
+        alert('Por favor, preencha todos os campos!');
+        return;
+      }
+
+      // Simular cálculo do risco (substituir por lógica real)
+      const risco = Math.random() * 100; // Exemplo fictício
+
+      // Exibir resultado
+      document.getElementById('risco-fogo').textContent = `${risco.toFixed(2)}%`;
+      document.getElementById('output').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
